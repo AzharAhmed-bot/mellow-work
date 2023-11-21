@@ -9,10 +9,30 @@ The workspace contains two folders by default, where:
 - `src`: the folder to maintain sources
 - `lib`: the folder to maintain dependencies
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Installation
+Java Development kit must be installed in your computer use the following command to install java in your Ubuntu Terminal
+1. Update the packages.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+  ```bash
+  sudo apt-get update
+ ```
 
-## Dependency Management
+2.Install the Java Development  Kit
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```bash
+sudo apt install default-jdk
+```  
+3.Install the Java Runtime Environment
+
+```bash
+sudo apt install default-jre
+```
+4. Confirm if java is installed
+
+```bash
+java --version
+```
+
+
+
+
