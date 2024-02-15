@@ -17,12 +17,12 @@ Java Development kit must be installed in your computer use the following comman
   sudo apt-get update
  ```
 
-2.Install the Java Development  Kit
+2. Install the Java Development  Kit
 
 ```bash
 sudo apt install default-jdk
 ```  
-3.Install the Java Runtime Environment
+3. Install the Java Runtime Environment
 
 ```bash
 sudo apt install default-jre
