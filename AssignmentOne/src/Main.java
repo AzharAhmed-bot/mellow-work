@@ -38,8 +38,6 @@ public class Main {
             }
         }
 
-        System.out.println("Largest number is: " + largest + " index: " + largestIndex);
-        System.out.println("Smallest number is: " + smallest + " index: " + smallestIndex);
     }
 
     public int checkOrder() {
