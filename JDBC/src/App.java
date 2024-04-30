@@ -1,15 +1,17 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class App {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/users";
-
-        try (Connection connection = DriverManager.getConnection(url)) {
-            System.out.println("Connection to MySQL successful!");
-        } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+        Connection conn = null;
+        String url = "jdbc:mysql://localhost/?useSSL=false";
+        String username="root";
+        String password="";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, username, password);
+            System.out.println("Xampp Mysql connected...");
+        } catch(Exception e) {
+            System.out.println("Error:" + e.getMessage());
         }
     }
 }

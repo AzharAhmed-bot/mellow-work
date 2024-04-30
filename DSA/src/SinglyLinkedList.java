@@ -1,6 +1,5 @@
 // Visit the node.java to check out the node for the linked list
 
-
 public class SinglyLinkedList {
     Node head;
     public SinglyLinkedList(int head){
@@ -49,6 +48,7 @@ public class SinglyLinkedList {
     // 4. Set the second-to-last node's next pointer to null
     public void removeLast(){
         Node current=head;
+        
         if(current==null){
             return;
         }
@@ -60,6 +60,33 @@ public class SinglyLinkedList {
         }
         current.next=null;
     }
+
+    // Add a node between other nodes
+    // 1. Create a new node
+    // 2. If the list is empty, add the node to the beginning
+    // 3. Traverse the list to find the correct position to insert the new node
+    // 4. If the current position matches the desired position, insert the new node
+    // 5. Else Move to the next node in the list and  Increment the current position
+    public void add(int data,int position){
+        Node current=head;
+        Node newNode=new Node(data);
+        int currentPosition=0;
+
+        if(current==null){
+            addFirst(data);
+            return;
+        }
+        
+        while(current!=null){
+            if(currentPosition==position-1){
+                newNode.next=current.next;
+                current.next=newNode;
+            }
+            current=current.next;
+            currentPosition++;
+        }
+    }
+
 
     // Delete the first occurrence of a node with the given key
     // 1. Traverse the list to find the node with the given key
@@ -79,6 +106,13 @@ public class SinglyLinkedList {
         return false;
     }
 
+   
+
+
+ 
+
+
+
     // Print the contents of the list
     // 1. Traverse the list and print each node's data
     // 2. Print "null" at the end to indicate the end of the list
@@ -93,12 +127,13 @@ public class SinglyLinkedList {
 
     public static void main(String[] args) {
         SinglyLinkedList list = new SinglyLinkedList(0); 
-        list.addFirst(1); 
-        list.addFirst(2);
-        list.addFirst(3); 
-        list.addLast(4);
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(5);
         list.printList();
-        list.delete(1);
+        list.add(4, 4);
+        // list.delete(1);
         list.printList();
     }
 }
