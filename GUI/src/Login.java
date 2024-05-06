@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package login;
-
-/**
- *
- * @author dim
- */
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
 
 public class Login extends JFrame implements ActionListener {
 
@@ -22,13 +12,16 @@ public class Login extends JFrame implements ActionListener {
     JButton btn1, btn2;
     JPasswordField p1;
 
+    // Instantiate an object of the events class
+    
+
     public Login() {
         //initialize container properties
         setSize(700, 700);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Login Page");
-        
+
         //initialize GUI components
         l1 = new JLabel("Login Page");
         l1.setForeground(Color.blue);
@@ -38,9 +31,19 @@ public class Login extends JFrame implements ActionListener {
         tf1 = new JTextField();
         p1 = new JPasswordField();
         btn1 = new JButton("Login");
+        btn1.addActionListener(e -> {
+            // Call the saveData method when the Login button is clicked
+            events LoginEvent=new events(btn1.getText());
+            try {
+                LoginEvent.saveData(tf1.getText(), new String(p1.getPassword()));
+            } catch (InterruptedException e1) {
+                System.out.println("Error: "+e1);
+            }
+        });
+
         btn2 = new JButton("Register");
-        
-        //deciding location for the components since we have no layout
+
+        // deciding location for the components since we have no layout
         l1.setBounds(300, 110, 400, 30);
         l2.setBounds(80, 160, 200, 30);
         l3.setBounds(80, 210, 200, 30);
@@ -48,8 +51,8 @@ public class Login extends JFrame implements ActionListener {
         p1.setBounds(300, 210, 200, 30);
         btn1.setBounds(250, 270, 100, 30);
         btn2.setBounds(370, 270, 100, 30);
-        
-        //add to container
+
+        // add to container
         add(l1);
         add(l2);
         add(l3);
@@ -58,9 +61,10 @@ public class Login extends JFrame implements ActionListener {
         add(btn1);
         add(btn2);
 
-        //actions
+        // actions
         btn2.addActionListener(this);
 
+        // Instantiate the events obje
     }
 
     public static void main(String args[]) {
@@ -70,7 +74,7 @@ public class Login extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
         if (e.getSource() == btn2) {
 
@@ -79,5 +83,4 @@ public class Login extends JFrame implements ActionListener {
             this.setVisible(false);
         }
     }
-
 }

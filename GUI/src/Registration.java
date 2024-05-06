@@ -41,10 +41,7 @@ public class Registration extends JFrame implements ActionListener
         setTitle("Registration Form in Java");
  
         l1 = new JLabel("Registration Form:");
-        l1.setForeground(Color.blue);
-        l1.setFont(new Font("Serif", Font.BOLD, 20));
-        
-        
+       
  
         l2 = new JLabel("Name:");
         l3 = new JLabel("Email-ID:");
@@ -79,6 +76,21 @@ public class Registration extends JFrame implements ActionListener
  
         //btn1.addActionListener(this);
         //btn2.addActionListener(this);
+        btn1.addActionListener(e->{
+            events RegistetationEvent=new events(btn1.getText());
+            try {
+                RegistetationEvent.registerData(tf1.getText(), tf2.getText());
+            } catch (InterruptedException e1) {
+                System.out.println("Error in register");
+                e1.printStackTrace();
+            }
+
+        });
+
+        btn2.addActionListener(e->{
+            events clearEvent=new events(btn2.getText());
+            clearEvent.clearInput(tf1, tf2, p1, p2, tf5, tf6, tf7, radio1, radio2, option1, option2, option3);
+        });
  
         l1.setBounds(250, 30, 400, 30);
         l2.setBounds(80, 70, 200, 30);
