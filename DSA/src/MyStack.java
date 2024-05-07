@@ -51,6 +51,7 @@ public class MyStack {
        
     }
 
+    // Search for a given value in the stack and return the value if found
     public int search(int value){
         for(int i=0;i<Frontier.size();i++){
             if(Frontier.get(i) == value){
@@ -62,6 +63,7 @@ public class MyStack {
         return value;
     }
 
+    // Return the size of the stack
     public void size(){
         System.out.println(Frontier.size());
     }
@@ -97,7 +99,7 @@ public class MyStack {
         stack.print();
 
         System.out.println("------------------Search for a value--------------------");
-        System.out.println(stack.search(5));
+        System.out.println(stack.search(10));
 
         System.out.println("------------------Size of stack--------------------");
         stack.size();
