@@ -44,10 +44,10 @@ public class MyStack {
     // Print the elements of the stack
     public void print(){
        for(int i=0; i<Frontier.size();i++){
-        System.out.println("Index("+i+") " + " Value: "+Frontier.get(i));
-        System.out.println("↑");
+        System.out.println("Index("+i+") " + "---> Value: "+Frontier.get(i));
+        System.out.println("\t\t↑");
        }
-       System.out.println("Bottom");
+       System.out.println("\t\tBottom");
        
     }
 
