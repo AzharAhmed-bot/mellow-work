@@ -105,14 +105,6 @@ public class SinglyLinkedList {
         }
         return false;
     }
-
-   
-
-
- 
-
-
-
     // Print the contents of the list
     // 1. Traverse the list and print each node's data
     // 2. Print "null" at the end to indicate the end of the list
