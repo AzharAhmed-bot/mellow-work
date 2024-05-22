@@ -40,31 +40,27 @@ public class PostFix{
                     myStack.push(Integer.parseInt(exp));
                 }
                 else{
-                    int first=myStack.pop();
                     int second=myStack.pop();
+                    int first=myStack.pop();
                     int result;
-                    switch ((exp)) {
-                        case "/":
-                            result=divide(second, first);
-                            myStack.push(result);
+                    switch (exp) {
+                        case "+":
+                            result = add(first, second);
+                            break;
+                        case "-":
+                            result = sub(first, second);
                             break;
                         case "*":
-                            result=mult(second, first);
-                            myStack.push(result);
+                            result = mult(first, second);
                             break;
-
-                        case "+":
-                            result=add(second, first);
-                            myStack.push(result);
-                            break;
-                    
-                        case "-":
-                            result=sub(second, first);
-                            myStack.push(result);
+                        case "/":
+                            result = divide(first, second);
                             break;
                         default:
-                            break;
+                            System.out.println("Invalid operator: " + exp);
+                            return;
                     }
+                    myStack.push(result);
 
                 }
                
