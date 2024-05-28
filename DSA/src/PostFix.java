@@ -1,7 +1,4 @@
 import java.util.*;
-
-import javax.management.ObjectName;
-
 public class PostFix{
     public static int size;
     public static Stack<Integer> myStack;
