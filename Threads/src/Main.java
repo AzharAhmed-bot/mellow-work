@@ -9,10 +9,10 @@ public class Main {
 
         // System.out.println(Thread.currentThread().isAlive());
 
-        MyThread thread2=new MyThread();
+        // MyThread thread2=new MyThread();
 
         // Start the thread otherwise it wont run
-        thread2.start();
+        // thread2.start();
         // System.out.println(thread2.isAlive());
 
         // Naming a thread
@@ -25,7 +25,7 @@ public class Main {
         // There are 2 types of thread,
         // Deamon threads is a low priority thread that runs in background to perform tasks such as garbage collection
         // and the JVM terminates itself when all user threads(non-deamon threads) finish their execution
-        System.out.println(thread2.isDaemon());
+        // System.out.println(thread2.isDaemon());
 
 
 
