@@ -19,7 +19,7 @@ public class Main {
             System.out.print("Enter element of array: ");
             myArray[i] = scanner.nextInt();
         }
-
+   
         scanner.close();
     }
 
