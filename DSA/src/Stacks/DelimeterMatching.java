@@ -24,17 +24,13 @@ public class DelimeterMatching {
             if (String.valueOf(currentChar).matches(openDelimiterRegex)) {
                 charStack.push(currentChar);
             } else if (String.valueOf(currentChar).matches(closeDelimiterRegex)) {
-                if (!charStack.isEmpty()) {
-                    char topChar = (char) charStack.pop();
-                    if (!isMatchingPair(topChar, currentChar)) {
-                        // Mismatch detected, do not push currentChar back onto the stack
-                        charStack.push(topChar); // push back the popped topChar
-                        charStack.push(currentChar); // push the current mismatching char
+                if(!charStack.isEmpty()){
+                    if(isMatchingPair((char)charStack.peek(),currentChar)){    
+                        charStack.pop();
                     }
-                    // If they match, no need to push anything back, just continue
-                } else {
-                    // Stack is empty and encountered a closing delimiter, mismatch
-                    charStack.push(currentChar); // Push the current closing delimiter onto stack
+                    else{
+                        charStack.push(currentChar);
+                    }
                 }
             }
         }
@@ -48,7 +44,6 @@ public class DelimeterMatching {
             System.out.print(word+": Mismatch delimiter");
         }
         System.out.println();
-        charStack.print();
     }
 
     public boolean isMatchingPair(char open,char close){
