@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BankQueueTest {
     public static void main(String[] args) {
-        MyQueue bankQueue = new MyQueue(10);
+        BankQueue bankQueue = new BankQueue(10);
         Scanner scanner = new Scanner(System.in);
         String command;
 
