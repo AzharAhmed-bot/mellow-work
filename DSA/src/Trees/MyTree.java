@@ -86,8 +86,14 @@ public class MyTree {
         }
         
     }
-    public void delete(){
-        
+    public void delete(int data){
+        Node current=root;
+        if(current==null){
+            System.out.println("The tree is empty");
+        }
+        else if(find(data) != null){
+            
+        }
     }
 
     public static void main(String[] args) {
