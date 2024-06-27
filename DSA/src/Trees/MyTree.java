@@ -105,7 +105,7 @@ public class MyTree {
         myTree.insert(70);
         myTree.insert(60);
         myTree.insert(80);
-
+        
         myTree.printTree();
         Node root=myTree.find(50);
         myTree.in_order_traversal(root);
@@ -113,9 +113,7 @@ public class MyTree {
         myTree.post_order_traversal(root);
         System.out.println();
         myTree.pre_order_traversal(root);
-        System.out.println();
-  
-    
+        System.out.println();  
     }
 }
 
