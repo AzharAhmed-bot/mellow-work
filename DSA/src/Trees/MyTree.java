@@ -86,14 +86,58 @@ public class MyTree {
         }
         
     }
+
     public void delete(int data){
+        root=deleteRecursive(root, data);
+    }
+
+    public Node deleteRecursive(Node root, int data){
+        if(root==null){
+            return root;
+        }
+
+        if(data<root.data){
+            root.lChild=deleteRecursive(root.lChild, data);
+        }else if(data>root.data){
+            root.rChild=deleteRecursive(root.rChild, data);
+        }else{
+            // Case 1: Node with only 1 child or no children
+            // We replace the node with its right child or left child
+            if(root.lChild==null){
+                return root.rChild;
+            }else if(root.rChild==null){
+                return root.lChild;
+            }
+            // Case 2: Node with 2 children
+            // Find the in order successor(smallest in the right subtree)
+            root.data=maximumValue(root.rChild).data;
+
+            // Delete the in order successor from the tree
+            root.rChild=deleteRecursive(root.rChild, root.data);
+        }
+        return root;
+    }
+
+    public Node maximumValue(Node root){
         Node current=root;
         if(current==null){
-            System.out.println("The tree is empty");
+            return null;
         }
-        else if(find(data) != null){
-            
+        while(root.rChild!=null){
+            current=root.rChild;
         }
+        return current;
+    }
+
+    public Node minimumValue(Node root){
+        Node current=root;
+        if(current==null){
+            return null;
+        }
+        while(root.lChild!=null){
+            current=root.lChild;
+        }
+        return current;
     }
 
     public static void main(String[] args) {
@@ -105,7 +149,6 @@ public class MyTree {
         myTree.insert(70);
         myTree.insert(60);
         myTree.insert(80);
-        
         myTree.printTree();
         Node root=myTree.find(50);
         myTree.in_order_traversal(root);
@@ -114,6 +157,10 @@ public class MyTree {
         System.out.println();
         myTree.pre_order_traversal(root);
         System.out.println();  
+
+       
+        myTree.delete(30);
+        myTree.printTree();
     }
 
 
