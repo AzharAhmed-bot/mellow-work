@@ -1,5 +1,7 @@
 package Trees;
 
+import java.util.ArrayList;
+
 public class MyTree {
     public Node root;
     int searchedKey = -1;
@@ -9,22 +11,33 @@ public class MyTree {
     }
 
     public void insert(int data) {
-        root = insertRecursive(root, data);
+        ArrayList<Integer> nodesVisited = new ArrayList<>();
+        root = insertRecursive(root, data, nodesVisited);
+        System.out.println("Nodes visited: " + nodesVisited);
     }
 
-    public Node insertRecursive(Node node, int data) {
+    private Node insertRecursive(Node node, int data, ArrayList<Integer> nodesVisited) {
         if (node == null) {
-            node = new Node(data);
+            System.out.println("Inserting " + data);
+            return new Node(data);
+        }
+
+        nodesVisited.add(node.data);
+
+        if (data < node.data) {
+            node.lChild = insertRecursive(node.lChild, data, nodesVisited);
         } else {
-            if (data < node.getData()) {
-                node.lChild = insertRecursive(node.lChild, data);
-            } else {
-                node.rChild = insertRecursive(node.rChild, data);
-            }
+            node.rChild = insertRecursive(node.rChild, data, nodesVisited);
         }
         return node;
     }
 
+    /**
+     * Finds a node in the binary search tree with the given data.
+     *
+     * @param  data the data to search for
+     * @return      the node with the given data, or null if not found
+     */
     public Node find(int data) {
         searchedKey = data;
         Node current = root;
@@ -91,6 +104,13 @@ public class MyTree {
         root=deleteRecursive(root, data);
     }
 
+    /**
+     * Delete a node with the given data recursively from the binary search tree.
+     *
+     * @param  root the root node of the binary search tree
+     * @param  data the data to be deleted
+     * @return      the root node of the modified binary search tree after deletion
+     */
     public Node deleteRecursive(Node root, int data){
         if(root==null){
             return root;
@@ -142,15 +162,17 @@ public class MyTree {
 
     public static void main(String[] args) {
         MyTree myTree = new MyTree();
-        myTree.insert(50);
-        myTree.insert(30);
+        myTree.insert(48);
+        myTree.insert(31);
+        myTree.insert(34);
         myTree.insert(20);
-        myTree.insert(40);
-        myTree.insert(70);
-        myTree.insert(60);
-        myTree.insert(80);
+        myTree.insert(78);
+        myTree.insert(54);
+        myTree.insert(50);
+        myTree.insert(92);
+
         myTree.printTree();
-        Node root=myTree.find(50);
+        Node root=myTree.find(48);
         myTree.in_order_traversal(root);
         System.out.println();
         myTree.post_order_traversal(root);
@@ -158,8 +180,7 @@ public class MyTree {
         myTree.pre_order_traversal(root);
         System.out.println();  
 
-       
-        myTree.delete(30);
+        myTree.find(50);
         myTree.printTree();
     }
 
