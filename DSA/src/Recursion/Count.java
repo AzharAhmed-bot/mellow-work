@@ -1,3 +1,4 @@
+package Recursion;
 
 import java.util.*;
 
@@ -30,6 +31,33 @@ public class Count {
         }
         return n + countSum(n - 1);
     }
+
+    // Priny elements of an array in a recursion
+    public void printElementsOfArray(int[] myarray,int index){
+        
+        if(myarray.length == index){
+            return;
+        }
+
+        System.out.println(myarray[index]);
+        printElementsOfArray(myarray, index+1);
+
+    }
+
+
+    // To find gcd of a number
+    public static int gcd(int a, int b) {
+        // Ensure a is always non-negative
+        a = Math.abs(a);
+        
+      
+        if (b == 0) {
+          return a;
+        }
+      
+        
+        return gcd(b, a % b);
+      }
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Count Down:");

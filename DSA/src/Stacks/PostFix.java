@@ -1,3 +1,4 @@
+package Stacks;
 import java.util.*;
 public class PostFix{
     public static int size;

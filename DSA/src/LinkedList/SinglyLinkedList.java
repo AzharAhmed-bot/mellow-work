@@ -1,3 +1,4 @@
+package LinkedList;
 // Visit the node.java to check out the node for the linked list
 
 public class SinglyLinkedList {
