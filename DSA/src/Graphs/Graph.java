@@ -6,6 +6,7 @@ public class Graph {
     public int MAX_VERTICES = 30;
     public Vertex[] vertexList;
     public MyLinkedList[] adjacencyList;
+    public int[][] adjacencyMatrix;
     public int count;
     public Stack<Integer> myStack;
     public Queue<Integer> myQueue;
@@ -32,6 +33,11 @@ public class Graph {
         adjacencyList[end].insertFirst(start);
     }
 
+    // public void addEdge(int start, int end){
+    //     adjacencyMatrix[start][end]=1;
+    //     adjacencyMatrix[start][end]=1;
+    // }
+
     public void displayVertex(int arrayPosition) {
         System.out.print(vertexList[arrayPosition].data + " ");
     }
@@ -39,6 +45,15 @@ public class Graph {
     public int getAdjUnvisitedVertex(int arrayPosition) {
         return adjacencyList[arrayPosition].findUnvisitedVertex(vertexList);
     }
+
+    // public int getAdjUnvisitedVertex(int arrayPosition){
+    //     for(int i=0;i<count;i++){
+    //         if(adjacencyMatrix[arrayPosition][i]==1 && !vertexList[arrayPosition].wasVisited ){
+    //             return i;
+    //     }
+    //     }
+    //     return -1;
+    // }
 
     public void depthFirstSearch() {
         vertexList[0].wasVisited = true;
