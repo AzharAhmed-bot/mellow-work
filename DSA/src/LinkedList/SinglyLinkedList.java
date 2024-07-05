@@ -3,6 +3,10 @@ package LinkedList;
 
 public class SinglyLinkedList {
     Node head;
+    
+    public SinglyLinkedList(){
+
+    }
     public SinglyLinkedList(int head){
         this.head = new Node(head);
     }
@@ -40,6 +44,10 @@ public class SinglyLinkedList {
             current=current.next;
         }
         current.next=new Node(data);
+    }
+
+    public boolean isEmpty(){
+        return head==null;
     }
 
     // Remove the last node from the list
