@@ -146,12 +146,12 @@ public class Graph {
         System.out.println("Breadth First Search For Minimum spanning tree:");
         g.breadthFirstSearchForMST();
 
-        System.out.println("Depth First Search:");
-        g.depthFirstSearch();
-        System.out.println();
+        // System.out.println("Depth First Search:");
+        // g.depthFirstSearch();
+        // System.out.println();
 
-        System.out.println("Breadth First Search:");
-        g.breadthFirstSearch();
-        System.out.println();
+        // System.out.println("Breadth First Search:");
+        // g.breadthFirstSearch();
+        // System.out.println();
     }
 }
