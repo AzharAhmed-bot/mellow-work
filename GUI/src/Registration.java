@@ -1,57 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author dim
- */
-
 import javax.swing.*;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
-//import java.awt.*;
-//import java.sql.*;
 import java.awt.event.ActionListener;
- 
-public class Registration extends JFrame implements ActionListener
-  { 
-    JLabel l1, l2, l3, l4, l5, l6, l7, l8,l9,l10;
+
+public class Registration extends JFrame implements ActionListener {
+
+    JLabel l1, l2, l3, l4, l5, l6, l7, l8, l9, l10;
     JTextField tf1, tf2, tf5, tf6, tf7;
     JButton btn1, btn2;
     JPasswordField p1, p2;
-    // A group of radio buttons 
-    // necessary to only allow one radio button to be selected at the same time. 
-        CheckboxGroup radioGroup; 
-    // The radio buttons to be selected 
-        Checkbox radio1; 
-        Checkbox radio2; 
-    // An independant selection box 
-        Checkbox option1, option2, option3; 
- 
- public Registration()
-     {
-        //setVisible(true);
+    CheckboxGroup radioGroup;
+    Checkbox radio1, radio2;
+    Checkbox option1, option2, option3;
+
+    public Registration() {
         setSize(700, 700);
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Registration Form in Java");
- 
+        setTitle("Registration Form");
+
         l1 = new JLabel("Registration Form:");
-       
- 
         l2 = new JLabel("Name:");
         l3 = new JLabel("Email-ID:");
-        l4 = new JLabel("Create Passowrd:");
+        l4 = new JLabel("Create Password:");
         l5 = new JLabel("Confirm Password:");
         l6 = new JLabel("Country:");
         l7 = new JLabel("State:");
-        l8 = new JLabel("Phone No:"); 
+        l8 = new JLabel("Phone No:");
         l9 = new JLabel("Gender:");
-        l10= new JLabel("Course:");
+        l10 = new JLabel("Course:");
         tf1 = new JTextField();
         tf2 = new JTextField();
         p1 = new JPasswordField();
@@ -59,39 +36,18 @@ public class Registration extends JFrame implements ActionListener
         tf5 = new JTextField();
         tf6 = new JTextField();
         tf7 = new JTextField();
-		// initialize the radio buttons group
-		radioGroup = new CheckboxGroup();
-		// first radio button. Gives the label text, tells to which
-		// group it belongs and sets the default state (unselected)
-		radio1 = new Checkbox("Male", radioGroup, false);
-		// same but selected
-		radio2 = new Checkbox("Female", radioGroup, true);
-		// Label and state of the checkbox
-		option1 = new Checkbox("Course 1", false);
-		option2 = new Checkbox("Course 2", false);
-		option3 = new Checkbox("Course 3", false);
- 
+        radioGroup = new CheckboxGroup();
+        radio1 = new Checkbox("Male", radioGroup, false);
+        radio2 = new Checkbox("Female", radioGroup, true);
+        option1 = new Checkbox("Course 1", false);
+        option2 = new Checkbox("Course 2", false);
+        option3 = new Checkbox("Course 3", false);
+
         btn1 = new JButton("Submit");
         btn2 = new JButton("Clear");
- 
-        //btn1.addActionListener(this);
-        //btn2.addActionListener(this);
-        btn1.addActionListener(e->{
-            events RegistetationEvent=new events(btn1.getText());
-            try {
-                RegistetationEvent.registerData(tf1.getText(), tf2.getText());
-            } catch (InterruptedException e1) {
-                System.out.println("Error in register");
-                e1.printStackTrace();
-            }
+        btn1.addActionListener(this);
+        btn2.addActionListener(this);
 
-        });
-
-        btn2.addActionListener(e->{
-            events clearEvent=new events(btn2.getText());
-            clearEvent.clearInput(tf1, tf2, p1, p2, tf5, tf6, tf7, radio1, radio2, option1, option2, option3);
-        });
- 
         l1.setBounds(250, 30, 400, 30);
         l2.setBounds(80, 70, 200, 30);
         l3.setBounds(80, 110, 200, 30);
@@ -116,7 +72,7 @@ public class Registration extends JFrame implements ActionListener
         option1.setBounds(300, 390, 100, 30);
         option2.setBounds(400, 390, 100, 30);
         option3.setBounds(500, 390, 100, 30);
- 
+
         add(l1);
         add(l2);
         add(tf1);
@@ -141,27 +97,36 @@ public class Registration extends JFrame implements ActionListener
         add(option1);
         add(option2);
         add(option3);
-        
-        btn1.addActionListener(this);
-        
     }
- 
- 
 
+    public static void main(String args[]) {
+        SwingUtilities.invokeLater(() -> {
+            Registration registration = new Registration();
+            registration.setVisible(true);
+        });
+    }
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource()==btn1){
-			
-			
-			
-			Login b = new Login();
-			b.setVisible(true);
-			this.setVisible(false);
-		}
-		
-	}
-  }
-
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btn1) {
+            // Assuming registration is successful, navigate to Login page
+            SwingUtilities.invokeLater(() -> {
+                Login login = new Login();
+                login.setVisible(true);
+            });
+            this.setVisible(false);
+        } else if (e.getSource() == btn2) {
+            tf1.setText("");
+            tf2.setText("");
+            p1.setText("");
+            p2.setText("");
+            tf5.setText("");
+            tf6.setText("");
+            tf7.setText("");
+            radioGroup.setSelectedCheckbox(null);
+            option1.setState(false);
+            option2.setState(false);
+            option3.setState(false);
+        }
+    }
+}
