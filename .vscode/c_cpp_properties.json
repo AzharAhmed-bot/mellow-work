@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerArgs": [
+                "-I/usr/lib/jvm/java-11-openjdk-amd64/include",
+                "-I/usr/lib/jvm/java-11-openjdk-amd64/include/linux",
+                "-shared",
+                "-fPIC"
+            ]
+        }
+    ],
+    "version": 4
+}

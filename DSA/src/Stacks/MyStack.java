@@ -74,7 +74,7 @@ public class MyStack {
         MyStack stack=new MyStack(5);
         stack.push(0);
         stack.push(1);
-        stack.push("Zakiya");
+        stack.push("Ahmed");
         stack.push(3);
         stack.push("Azhar");
         stack.print();
