@@ -6,6 +6,7 @@ public class App {
         if (n <= 1) {
             return n;
         }
+
         memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
         return memo[n];
     }
@@ -30,6 +31,39 @@ public class App {
         
         return gcd(b, a % b);
       }
+
+    //   Method that converts integers to string
+      public String toString(int num, int base){
+        String lookUp="0123456789ABCDEF";
+        if(num < base){
+            return String.valueOf(lookUp.charAt(num));
+        }
+        return toString(num/base,base) + lookUp.charAt(num%base);
+    }
+
+
+    // Optimized method to find power of a number
+    public int power(int base,int exp){
+        if(exp==0){
+            return 1;
+        }
+        if(exp==1){
+            return base;
+        }
+        if(exp%2==0){
+            return power(base*base , exp/2);
+        }
+        return base * power(base,exp-1);
+    }
+
+    // Method to find factorial of a number
+    public int factorial(int num){
+        if(num==0){
+            return 1;
+        }
+        
+        return num*factorial(num-1);
+    }
       
       
 
